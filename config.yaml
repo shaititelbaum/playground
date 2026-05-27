@@ -1,0 +1,9 @@
+app:
+  name: TodoListApp
+  environment: development
+
+database:
+  enabled: false
+  type: mysql
+  host: localhost
+  port: 3306
