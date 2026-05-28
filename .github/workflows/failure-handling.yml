@@ -1,0 +1,28 @@
+name: Failure Handling
+
+on: [push]
+
+jobs:
+  risky-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Might fail
+        run: exit 1
+        continue-on-error: true
+
+      - name: This still runs
+        run: echo "Running despite previous failure"
+
+  dependent-job:
+    needs: risky-job
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "This runs even if risky-job failed"
+
+  cleanup:
+    needs: [risky-job, dependent-job]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Cleanup always runs"
