@@ -1,0 +1,13 @@
+name: Main Branch Only
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying from ${{ github.ref }}"
