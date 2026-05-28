@@ -15,3 +15,9 @@ jobs:
 
       - name: Print system info
         run: uname -a
+
+      - name: List files
+        run: ls -la
+    
+      - name: Check disk space
+        run: df -h
