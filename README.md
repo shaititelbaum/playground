@@ -8,3 +8,4 @@ This repository contains a Python Todo List application integrated with a modern
 - `app.py` - Core application code (Task management)
 - `config.yaml` - Environmental and Database settings
 - Tested with Chip
+- Tested with PR-Checks
