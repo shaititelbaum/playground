@@ -1,5 +1,7 @@
 # My playground area for learning and working on a project.
 
+[![CI](https://github.com/shaititelbaum/playground/workflows/CI/badge.svg)](https://github.com/shaititelbaum/playground/actions)
+
 # DevOps Project: Todo List App
 
 This repository contains a Python Todo List application integrated with a modern DevOps pipeline and a database.
