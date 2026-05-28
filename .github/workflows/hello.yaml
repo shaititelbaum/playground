@@ -1,6 +1,6 @@
-name: Hello World
+name: Shai First Automation Pipeline 
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   greet:
