@@ -1,0 +1,44 @@
+name: Sequential Pipeline
+
+on: [push]
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup environment
+        run: |
+          echo "Setting up environment"
+          echo "TIMESTAMP=$(date +%s)" >> $GITHUB_ENV
+
+      - name: Verify setup
+        run: echo "Setup complete at $TIMESTAMP"
+
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build application
+        run: |
+          echo "Building application"
+          sleep 2
+          echo "Build complete"
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: |
+          echo "Running tests"
+          sleep 2
+          echo "All tests passed"
+
+  deploy:
+    needs: [build, test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to staging
+        run: |
+          echo "Deploying to staging"
+          echo "Deployment complete"
